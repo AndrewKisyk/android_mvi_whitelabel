@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ActiveSessionsChecker</string>
+
+    <string name="nav_all">All</string>
+    <string name="nav_active">Active</string>
+    <string name="nav_completed">Completed</string>
+    <string name="label_all">All Tasks</string>
+    <string name="label_active">Active Tasks</string>
+    <string name="label_completed">Completed Tasks</string>
+    <string name="no_tasks_all">You have no tasks!</string>
+    <string name="no_tasks_active">You have no active tasks!</string>
+    <string name="no_tasks_completed">You have no completed tasks!</string>
+    <string name="refresh">Refresh</string>
+    <string name="successfully_deleted_task_message">Task was deleted</string>
+    <string name="successfully_added_task_message">Task added</string>
+    <string name="no_data_description" />
+
+    <!-- Content Descriptions -->
+    <string name="tasks_header_image_content_description">Tasks header image</string>
+    <string name="no_tasks_image_content_description">No tasks image</string>
+    <string name="error_message">Error occurred</string>
+</resources>
