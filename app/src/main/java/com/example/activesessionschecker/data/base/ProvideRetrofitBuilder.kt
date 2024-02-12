@@ -1,5 +1,7 @@
 package com.example.activesessionschecker.data.base
 
+import okhttp3.OkHttpClient
+import retrofit2.Converter
 import retrofit2.Retrofit
 
 interface ProvideRetrofitBuilder {
@@ -7,20 +9,20 @@ interface ProvideRetrofitBuilder {
     fun provideRetrofitBuilder(): Retrofit.Builder
 
     abstract class Abstract(
-        private val provideConverterFactory: ProvideConverterFactory,
-        private val httpClientBuilder: ProvideOkHttpClientBuilder,
+        private val converterFactory: Converter.Factory,
+        private val httpClientBuilder: OkHttpClient.Builder,
     ) : ProvideRetrofitBuilder {
 
         override fun provideRetrofitBuilder(): Retrofit.Builder = Retrofit.Builder()
-            .addConverterFactory(provideConverterFactory.converterFactory())
-            .client(httpClientBuilder.httpClientBuilder().build())
+            .addConverterFactory(converterFactory)
+            .client(httpClientBuilder.build())
     }
 
     class Base(
-        provideConverterFactory: ProvideConverterFactory,
-        httpClientBuilder: ProvideOkHttpClientBuilder,
+        converterFactory: Converter.Factory,
+        httpClientBuilder: OkHttpClient.Builder,
     ) : Abstract(
-        provideConverterFactory,
+        converterFactory,
         httpClientBuilder
     )
 }
