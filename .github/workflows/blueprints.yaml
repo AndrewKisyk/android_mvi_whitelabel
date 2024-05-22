@@ -1,5 +1,10 @@
 name: blueprints
+env:
+  # The name of the main module repository
+  main_project_module: app
 
+  # The name of the Play Store
+  playstore_name: MVI_Whitelabel
 on:
   push:
     branches:
@@ -134,40 +139,12 @@ jobs:
           name: build-reports
           path: app/build/reports/
 
-      - name: Upload all outputs
-        if: failure()
-        uses: actions/upload-artifact@v2
+      - name: Upload APK Debug
+        uses: actions/upload-artifact@v3.1.3
         with:
-          name: outputs
-          path: app/build/outputs/
+          name: ${{ github.event.repository.updated_at }} - ${{ env.playstore_name }} - APK(s) debug generated
+          path: app/build/outputs/apk/debug/app-debug.apk
 
-      - name: Build & Publish Debug APK
-        on:
-          push:
-            branches:
-              - master
-
-        jobs:
-          build:
-            runs-on: ubuntu-latest
-            steps:
-              - uses: actions/checkout@v1
-              - name: set up JDK 1.8
-                uses: actions/setup-java@v1
-                with:
-                  java-version: 1.8
-              - name: Make Gradle executable
-                run: chmod +x ./gradlew
-              - name: Build with Gradle
-                run: ./gradlew build
-              - name: Build Debug APK
-                run: ./gradlew assembleDebug
-              - name: Releasing using Hub
-                uses: ShaunLWM/action-release-debugapk@master
-                env:
-                  GITHUB_TOKEN: ${{ secrets.TOKEN }}
-                  APP_FOLDER: app
-                  RELEASE_TITLE: New Build
 
 #      - name: Upload test reports
 #        if: always()
