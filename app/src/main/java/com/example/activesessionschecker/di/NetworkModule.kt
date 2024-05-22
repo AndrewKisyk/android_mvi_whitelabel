@@ -77,7 +77,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun providesSessionsService(retrofitBuilder: Retrofit.Builder): SessionsService {
-        return ServiceProvider.Base(retrofitBuilder, BuildConfig.WEATHER_API_BASE_URL)
+        return ServiceProvider.Base(retrofitBuilder, "")
             .service(SessionsService::class.java)
     }
 }
