@@ -77,7 +77,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun providesSessionsService(retrofitBuilder: Retrofit.Builder): SessionsService {
-        return ServiceProvider.Base(retrofitBuilder, "")
+        return ServiceProvider.Base(retrofitBuilder, "https://www.google.com")
             .service(SessionsService::class.java)
     }
 }

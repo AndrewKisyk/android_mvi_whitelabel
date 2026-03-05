@@ -17,9 +17,11 @@
 package com.example.activesessionschecker
 
 import android.app.Application
+import com.example.activesessionschecker.util.AppCoroutineScope
 import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 import timber.log.Timber.DebugTree
+import javax.inject.Inject
 
 /**
  * Application that sets up Timber in the DEBUG BuildConfig.
@@ -28,8 +30,16 @@ import timber.log.Timber.DebugTree
 @HiltAndroidApp
 class ActiveSessionApplication : Application() {
 
+    @Inject
+    lateinit var appCoroutineScope: AppCoroutineScope
+
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) Timber.plant(DebugTree())
+    }
+
+    override fun onTerminate() {
+        super.onTerminate()
+        appCoroutineScope.cancel()
     }
 }

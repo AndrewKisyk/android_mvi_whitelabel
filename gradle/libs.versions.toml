@@ -45,7 +45,7 @@ kotlinxSerializationJson = "1.5.0"
 ksp = "1.8.10-1.0.9"
 lint = "30.3.1"
 # @keep
-minSdk = "21"
+minSdk = "30"
 okhttp = "4.10.0"
 protobuf = "3.21.12"
 protobufPlugin = "0.8.19"
@@ -55,11 +55,13 @@ room = "2.5.0-rc01"
 spotless = "5.12.5"
 timber = "5.0.1"
 # @keep
-targetSdk = "33"
+targetSdk = "36"
 truth = "1.1.2"
 turbine = "0.12.1"
 redux = "0.6.0"
 okhttp3Interceptor = "4.12.0"
+workRuntimeKtx = "2.11.1"
+glide = "4.16.0"
 
 [libraries]
 accompanist-appcompat-theme = { group = "com.google.accompanist", name = "accompanist-appcompat-theme", version.ref = "accompanist" }
@@ -146,6 +148,9 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 squareup-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 squareup-retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 okhttp3-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3Interceptor"  }
+androidx-work-runtime-ktx = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "workRuntimeKtx" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }

@@ -5,8 +5,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import java.util.concurrent.CancellationException
+import javax.inject.Inject
+import javax.inject.Singleton
 
-object AppCoroutineScope : CoroutineScope {
+@Singleton
+class AppCoroutineScope @Inject constructor(): CoroutineScope {
     override val coroutineContext = Dispatchers.Main + Job()
 
     fun cancel() {

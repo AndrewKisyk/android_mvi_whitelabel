@@ -126,6 +126,7 @@ dependencies {
     // Architecture Components
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
+    implementation(libs.androidx.work.ktx)
     ksp(libs.room.compiler)
     implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.lifecycle.viewModelCompose)
@@ -208,5 +209,9 @@ dependencies {
     implementation(libs.squareup.retrofit)
     implementation(libs.squareup.retrofit.converter)
     implementation(libs.okhttp3.interceptor)
+
+    // Images
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 
 }
