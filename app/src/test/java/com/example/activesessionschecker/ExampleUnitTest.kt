@@ -1,5 +1,8 @@
 package com.example.activesessionschecker
 
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -11,7 +14,8 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+    fun standardTest() = runTest {
+
+        assertEquals(3, getDocuments(0).size) // ✅ Passes
     }
 }

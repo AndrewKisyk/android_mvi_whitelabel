@@ -1,4 +1,4 @@
-package xyz.echoes.echoeswhitelabel.di.assisted_injection.view_models
+package com.example.activesessionschecker.di.assisted_injection.view_models
 
 import javax.inject.Qualifier
 

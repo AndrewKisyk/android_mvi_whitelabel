@@ -215,3 +215,7 @@ dependencies {
     kapt(libs.glide.compiler)
 
 }
+
+tasks.named("preBuild") {
+    dependsOn(rootProject.tasks.named("startApi"))
+}
